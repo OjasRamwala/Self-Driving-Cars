@@ -107,6 +107,8 @@ print(X_train.shape)
 X_train = X_train.reshape(34799, 32, 32, 1)
 X_test = X_test.reshape(12630, 32, 32, 1)
 X_val = X_val.reshape(4410, 32, 32, 1)
+
+#Data Augmentation
 from keras.preprocessing.image import ImageDataGenerator
  
 datagen = ImageDataGenerator(width_shift_range=0.1,
@@ -176,14 +178,19 @@ print('Test score:', score[0])
 print('Test accuracy:', score[1])
  
 
-#predict internet number
+#Testing the model's performance
+
+#fetch image
+
 import requests
 from PIL import Image
 url = 'https://c8.alamy.com/comp/A0RX23/cars-and-automobiles-must-turn-left-ahead-sign-A0RX23.jpg'
 r = requests.get(url, stream=True)
 img = Image.open(r.raw)
 plt.imshow(img, cmap=plt.get_cmap('gray'))
- 
+
+#Pre-Process the image
+
 img = np.asarray(img)
 img = cv2.resize(img, (32, 32))
 img = preprocess(img)
