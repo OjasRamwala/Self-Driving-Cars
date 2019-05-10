@@ -25,8 +25,7 @@ with open('german-traffic-signs/train.p', 'rb') as f:
 with open('german-traffic-signs/valid.p', 'rb') as f:
     val_data = pickle.load(f)
 # TODO: Load test data
-wit
-h open('german-traffic-signs/test.p', 'rb') as f:  # rb: read from binary
+with open('german-traffic-signs/test.p', 'rb') as f:  # rb: read from binary
     test_data = pickle.load(f)
  
     
@@ -71,6 +70,7 @@ plt.title("Distribution of the train dataset")
 plt.xlabel("Class number")
 plt.ylabel("Number of images")
 plt.show()
+
 import cv2
  
 plt.imshow(X_train[1000])
